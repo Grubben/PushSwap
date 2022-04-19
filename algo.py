@@ -10,25 +10,26 @@ def sorted(list):
 
 
 def algoSort():
-    while a[0] > a[-1]:
-        ra()
+    while not sorted(a):
+        while a[0] > a[-1]:
+            ra()
 
-    if a[0] > a[1]:
-        sa()
+        if a[0] > a[1]:
+            sa()
+            continue
+
+        while len(a) > 1 and a[0] < a[1]:
+            pb()
+
+    while b:
+        pa()
+    if not sorted(a):
         return algoSort()
-
-    while len(a) > 1 and a[0] < a[1]:
-        pb()
     
-    if sorted(a):
-        while b:
-            pa()
-        return
-    else:
-        return algoSort()
+    # print("Sorted!")
 
 
 
-a.extend([2,1,3,6,5,8])
+# a.extend([2,1,3,6,5,8])
 
-algoSort()
+# algoSort()

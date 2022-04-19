@@ -1,7 +1,3 @@
-args = "2 1 3 6 5 8"
-
-intargs = [int(n) for n in args.split()]
-
 stacka = []
 stackb = []
 

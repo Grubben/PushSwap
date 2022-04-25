@@ -1,3 +1,5 @@
+from ops import *
+
 def smallest(stack):
     return min(stack)
 
@@ -10,8 +12,8 @@ def set_ascending(stack):
 def set_descending(stack):
     stack.sort(reverse=True)
 
-def set_borderfor(newnum):
-    # Can be a lot more optimized
+def set_orderb_for(newnum):
+    # Can be a LOT more optimized
     set_ascending(stackb)
     while newnum > stackb[0]:
         rb()
@@ -28,8 +30,10 @@ def bgearSort():
             set_descending(b)
             pb()
         else: # in the midst
-            set_border_for(a[0])
+            set_orderb_for(a[0])
             pb()
+        print(stacka)
+        print(stackb)
 
     while b:
         pa()

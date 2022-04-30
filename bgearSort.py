@@ -20,9 +20,12 @@ def set_orderb_for(newnum):
     pb()
 
 
+def in_order(stack):
+    return sorted(stack) == stack or sorted(stack, reverse=True) == stack
+
 def bgearSort():
     pb()
-    while a:
+    while not in_order(a):
         if a[0] < smallest(b):
             set_ascending(b)
             pb()

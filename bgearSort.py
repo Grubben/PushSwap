@@ -7,9 +7,11 @@ def biggest(stack):
     return max(stack)
 
 def set_ascending(stack):
+    """[1, 2, 3]"""
     stack.sort()
 
 def set_descending(stack):
+    """[3, 2, 1]"""
     stack.sort(reverse=True)
 
 def set_orderb_for(newnum):
@@ -26,11 +28,14 @@ def bgearSort():
         if a[0] < smallest(b):
             set_ascending(b)
             pb()
-        elif a[0] > biggest(b):
+
+        if a[0] > biggest(b):
             set_descending(b)
             pb()
+
         else: # in the midst
-            set_orderb_for(a[0])
+            while a[0] < b[0]:
+                rb()
             pb()
         print(stacka)
         print(stackb)

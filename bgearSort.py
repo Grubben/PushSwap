@@ -24,33 +24,23 @@ def in_order(stack):
     return sorted(stack) == stack or sorted(stack, reverse=True) == stack
 
 def bgearSort():
-    if a != sorted(a): ## if a ascending
-        if a == sorted(a, reverse=True): ## if a descending
-            return
-        pb()
-        while not in_order(a):
-            if a[0] < smallest(b):
-                set_ascending(b)
-                pb()
-            elif a[0] > biggest(b):
-                set_descending(b)
-                pb()
-            else: # in the midst
-                set_orderb_for(a[0])
-                pb()
-            
-            if a == sorted(a, reverse=True): ## if a descending
-                while a != sorted(a): ## if descending
-                    # TODO: could be rra. Hv to make a way to get the best option
-                    ra()
+    pb()
+    while not in_order(a):
+        if a[0] < smallest(b):
+            set_ascending(b)
+            pb()
+        elif a[0] > biggest(b):
+            set_descending(b)
+            pb()
+        else: # in the midst
+            set_orderb_for(a[0])
+            pb()
+        print(stacka)
+        print(stackb)
 
+    while a != sorted(a): ## if descending
+        # TODO: could be rra. Hv to make a way to get the best option
+        ra()
 
-            print(stacka)
-            print(stackb)
-
-        while a != sorted(a): ## if descending
-            # TODO: could be rra. Hv to make a way to get the best option
-            ra()
-
-        while b:
-            pa()
+    while b:
+        pa()

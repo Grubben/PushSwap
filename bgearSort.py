@@ -38,9 +38,5 @@ def bgearSort():
         print(stacka)
         print(stackb)
 
-    while a != sorted(a): ## if descending
-        # TODO: could be rra. Hv to make a way to get the best option
-        ra()
-
     while b:
         pa()

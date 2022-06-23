@@ -23,6 +23,8 @@ def set_orderb_for(newnum):
 
 
 def bgearSort():
+    if sorted(a) == a:
+        return
     pb()
     while a:
         if a[0] < smallest(b):
@@ -44,9 +46,12 @@ def bgearSort():
 
     while b[0] != biggest(b):
         rb()
+    print(stacka)
+    print(stackb)
 
     while b:
         pa()
+
     print()
     print(stacka)
     print(stackb)

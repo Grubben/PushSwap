@@ -26,10 +26,11 @@ def bgearSort():
     pb()
     while a:
         if a[0] < smallest(b):
-            set_ascending(b)
+            set_descending(b) # rb
             pb()
+            rb()
 
-        if a[0] > biggest(b):
+        elif a[0] > biggest(b):
             set_descending(b)
             pb()
 
@@ -37,8 +38,15 @@ def bgearSort():
             while a[0] < b[0]:
                 rb()
             pb()
+
         print(stacka)
         print(stackb)
 
+    while b[0] != biggest(b):
+        rb()
+
     while b:
         pa()
+    print()
+    print(stacka)
+    print(stackb)

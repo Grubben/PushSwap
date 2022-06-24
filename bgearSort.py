@@ -21,7 +21,21 @@ def set_orderb_for(newnum):
         rb()
     pb()
 
-
+def giradaDetectorP(stack):
+    """Returns wether the stack is girada or not"""
+    
+    exceptions = 0;
+    if stack[0] < stack[-1]:
+        return False
+    i = 0;
+    while ( i < len(stack) - 1):
+        if stack[i] > stack[i + 1]:
+            exceptions++;
+            if exceptions > 1:
+                return False
+        i++
+    return True
+    
 def bgearSort():
     if sorted(a) == a:
         return

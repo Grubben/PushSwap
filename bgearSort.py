@@ -23,37 +23,50 @@ def set_orderb_for(newnum):
 
 def giradaDetectorP(stack):
     """Returns wether the stack is girada or not"""
-    
+
+    if len(stack) < 2:
+        return False
     exceptions = 0;
     if stack[0] < stack[-1]:
         return False
     i = 0;
     while ( i < len(stack) - 1):
         if stack[i] > stack[i + 1]:
-            exceptions++;
+            exceptions += 1;
             if exceptions > 1:
                 return False
-        i++
+        i += 1;
     return True
-    
+
 def bgearSort():
     if sorted(a) == a:
         return
+    if giradaDetectorP(a):
+        while giradaDetectorP(a):
+            ra() # rra might be more efficient in some cases
+        return
+
     pb()
     while a:
         if a[0] < smallest(b):
-            set_descending(b) # rb
+            #set_descending(b) # rb
             pb()
             rb()
+            if giradaDetectorP(a):
+                print("Turned")
 
         elif a[0] > biggest(b):
-            set_descending(b)
+            #set_descending(b)
             pb()
+            if giradaDetectorP(a):
+                print("Turned")
 
         else: # in the midst
             while a[0] < b[0]:
                 rb()
             pb()
+            if giradaDetectorP(a):
+                print("Turned")
 
         print(stacka)
         print(stackb)
@@ -67,5 +80,5 @@ def bgearSort():
         pa()
 
     print()
-    print(stacka)
+    #print(stacka)
     print(stackb)

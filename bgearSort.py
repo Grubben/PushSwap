@@ -12,6 +12,7 @@ def set_ascending(stack):
 
 def set_descending(stack):
     """[3, 2, 1]"""
+    #TODO: make this not cheat and be efficient
     stack.sort(reverse=True)
 
 def set_orderb_for(newnum):
@@ -49,14 +50,18 @@ def bgearSort():
     pb()
     while a:
         if a[0] < smallest(b):
-            #set_descending(b) # rb
+            # set_descending(b)
+            while biggest(b) != b[0]:
+                rb() # rrb might be more efficient in some cases
             pb()
             rb()
             if giradaDetectorP(a):
                 print("Turned")
 
         elif a[0] > biggest(b):
-            #set_descending(b)
+            # if sorted(b) != b:
+            while biggest(b) != b[0]:
+                rb() # rrb might be more efficient in some cases
             pb()
             if giradaDetectorP(a):
                 print("Turned")

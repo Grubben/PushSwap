@@ -4,65 +4,69 @@ stackb = []
 a = stacka
 b = stackb
 
+def s(stack):
+    if stack and stack[0] and stack[1]:
+        tmp = stack[0]
+        stack[0] = stack[1]
+        stack[1] = tmp
 
 def sa():
     print("sa")
-    if (stacka and stacka[0] and stacka[1]):
-        tmp = stacka[0]
-        stacka[0] = stacka[1]
-        stacka[1] = tmp
+    s(a)
 
 def sb():
     print("sb")
-    if (stackb and stackb[0] and stackb[1]):
-        tmp = stackb[0]
-        stackb[0] = stackb[1]
-        stackb[1] = tmp
+    s(b)
 
 def ss():
     sa()
     sb()
 
 
+def p(stack1, stack2):
+    if stack2:
+        stack1.insert(0, stack2[0])
+        stack2.pop(0)
+
 def pa():
     print("pa")
-    if stackb:
-        stacka.insert(0, stackb[0])
-        stackb.pop(0)
+    p(a, b)
 
 def pb():
     print("pb")
-    if stacka:
-        stackb.insert(0, stacka[0])
-        stacka.pop(0)
+    p(b, a)
 
+
+def r(stack):
+    if stack:
+        tmp = stack.pop(0)
+        stack.append(tmp)
+        
 def ra():
     print("ra")
-    if stacka:
-        tmp = stacka.pop(0)
-        stacka.append(tmp)
+    r(a)
 
 def rb():
     print("rb")
-    if stackb:
-        tmp = stackb.pop(0)
-        stackb.append(tmp)
+    r(b)
 
 def rr():
     ra()
     rb()
 
+
+def rr(stack):
+    if stack:
+        tmp = stack.pop()
+        stack.insert(0, tmp)
+
 def rra():
     print("rra")
-    if stacka:
-        tmp = stacka.pop()
-        stacka.insert(0, tmp)
+    rr(a)
 
 def rrb():
     print("rrb")
-    if stackb:
-        tmp = stackb.pop()
-        stackb.insert(0, tmp)
+    rr(b)
 
 def rrr():
     rra()

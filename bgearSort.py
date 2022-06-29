@@ -8,12 +8,24 @@ def biggest(stack):
 
 def set_ascending(stack):
     """[1, 2, 3]"""
-    stack.sort()
+    #TODO: use rr if more efficient
+    while stack[0] !=  smallest(stack):
+        r(stack)
+        print("r")
 
-def set_descending(stack):
+def set_descending(stack, verbose=True):
     """[3, 2, 1]"""
-    #TODO: make this not cheat and be efficient
-    stack.sort(reverse=True)
+    #TODO: use rr if more efficient
+    if stack.index(biggest(stack)) > len(stack) // 2:
+        while stack[0] != biggest(stack):
+            rr(stack)
+            if verbose:
+                print("rr")
+    else:
+        while stack[0] != biggest(stack):
+            r(stack)
+            if verbose:
+                print("r")
 
 def set_orderb_for(newnum):
     # Can be a LOT more optimized
@@ -23,7 +35,7 @@ def set_orderb_for(newnum):
     pb()
 
 def giradaDetectorP(stack):
-    """Returns wether the stack is girada or not"""
+    """Returns whether the stack is girada or not"""
 
     if len(stack) < 2:
         return False
@@ -44,29 +56,43 @@ def bgearSort():
         return
     if giradaDetectorP(a):
         while giradaDetectorP(a):
+            # set_ascending(a)
             ra() # rra might be more efficient in some cases
         return
 
     pb()
     while a:
-        if a[0] < smallest(b):
-            # set_descending(b)
-            while biggest(b) != b[0]:
-                rb() # rrb might be more efficient in some cases
+        if giradaDetectorP(a):
+            set_ascending(a)
+            print("Unturned a")
+        
+        # if a is in order and everything is bigger than in b
+        # then there is no need to pb
+        # Just order b and pa!
+        elif sorted(a) == a and smallest(a) > biggest(b):
+            set_descending(b)
+            while b:
+                pa()
+            print(stacka)
+            print(stackb)
+            return
+        
+        elif a[0] < smallest(b):
+            set_descending(b)
             pb()
             rb()
             if giradaDetectorP(a):
                 print("Turned")
 
         elif a[0] > biggest(b):
-            # if sorted(b) != b:
-            while biggest(b) != b[0]:
-                rb() # rrb might be more efficient in some cases
+            set_descending(b)
             pb()
             if giradaDetectorP(a):
                 print("Turned")
 
-        else: # in the midst
+        else: # in the 
+            #TODO: optmize this a lot!!!
+            set_descending(b)
             while a[0] < b[0]:
                 rb()
             pb()

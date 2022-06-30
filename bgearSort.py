@@ -13,6 +13,7 @@ def bgearSort(a, b):
     p(b, a, "b")
     while a:
         if giradaDetectorP(a):
+            print("Turned")
             set_ascending(a)
             print("Unturned a")
         
@@ -37,8 +38,6 @@ def bgearSort(a, b):
         elif a[0] > max(b):
             set_descending(b)
             p(b, a, "b")
-            if giradaDetectorP(a):
-                print("Turned")
 
         else: # in the 
             #TODO: optmize this a lot!!!
@@ -46,9 +45,7 @@ def bgearSort(a, b):
             while a[0] < b[0]:
                 r(b, "b")
             p(b, a, "b")
-            if giradaDetectorP(a):
-                print("Turned")
-
+# 1
         print(a)
         print(b)
 

@@ -1,73 +1,75 @@
-stacka = []
-stackb = []
-
-a = stacka
-b = stackb
-
-def s(stack):
+def s(stack, verbChar=""):
     if stack and stack[0] and stack[1]:
         tmp = stack[0]
         stack[0] = stack[1]
         stack[1] = tmp
+    if verbChar:
+        print("s" + verbChar)
 
-def sa():
-    print("sa")
-    s(a)
+# # def sa():
+# #     print("sa")
+# #     # s(a)
 
-def sb():
-    print("sb")
-    s(b)
+# def sb():
+#     print("sb")
+#     s(b)
 
-def ss():
-    sa()
-    sb()
+# def ss():
+#     sa()
+#     sb()
 
 
-def p(stack1, stack2):
+def p(stack1, stack2, verbChar=""):
     if stack2:
         stack1.insert(0, stack2[0])
         stack2.pop(0)
+    if verbChar:
+        print("p" + verbChar)
 
-def pa():
-    print("pa")
-    p(a, b)
+# def pa():
+#     print("pa")
+#     p(a, b)
 
-def pb():
-    print("pb")
-    p(b, a)
+# def pb():
+#     print("pb")
+#     p(b, a)
 
 
-def r(stack):
+def r(stack, verbChar=""):
     if stack:
         tmp = stack.pop(0)
         stack.append(tmp)
-        
-def ra():
-    print("ra")
-    r(a)
+    if verbChar:
+        print("r" + verbChar)
 
-def rb():
-    print("rb")
-    r(b)
+# def ra():
+#     print("ra")
+#     r(a)
 
-def rr():
-    ra()
-    rb()
+# def rb():
+#     print("rb")
+#     r(b)
+
+# def rr():
+#     ra()
+#     rb()
 
 
-def rr(stack):
+def rr(stack, verbChar=""):
     if stack:
         tmp = stack.pop()
         stack.insert(0, tmp)
+    if verbChar:
+        print("rr" + verbChar)
 
-def rra():
-    print("rra")
-    rr(a)
+# def rra():
+#     print("rra")
+#     rr(a)
 
-def rrb():
-    print("rrb")
-    rr(b)
+# def rrb():
+#     print("rrb")
+#     rr(b)
 
-def rrr():
-    rra()
-    rrb()
+# def rrr():
+#     rra()
+    # rrb()

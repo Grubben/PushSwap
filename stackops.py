@@ -7,28 +7,50 @@ Created on Thu Jun 30 13:57:12 2022
 
 from ops import s, p, r, rr
 
-def set_ascending(stack):
+def set_ascending(stack, verbChar=""):
     """[1, 2, 3]"""
+    moves = 0
     #TODO: use rr if more efficient
-    while stack[0] !=  min(stack):
-        r(stack)
-        print("r")
-        
+    if stack.index(max(stack)) > len(stack) // 2:
+        while stack[0] != min(stack):
+            rr(stack, verbChar)
+            moves += 1
+
+    else:
+        while stack[0] != min(stack):
+            r(stack, verbChar)
+            moves += 1
+    return moves
+
 
 def set_descending(stack, verbChar=""):
     """[3, 2, 1]"""
+    moves = 0
     #TODO: use rr if more efficient
     if stack.index(max(stack)) > len(stack) // 2:
         while stack[0] != max(stack):
             rr(stack, verbChar)
+            moves += 1
     else:
         while stack[0] != max(stack):
             r(stack, verbChar)
+            moves += 1
+    return moves
 
+
+def drain(giver, receiver, verbChar=""):
+    """Drains all nums in giver to receiver with p"""
+    moves = 0
+    moves += set_descending(giver)
+    while giver:
+        p(receiver, giver, verbChar)
+        moves += 1
+    print(receiver)
+    print(giver)
+    return moves
 
 def giradaDetectorP(stack):
     """Returns whether the stack is girada or not"""
-
     if len(stack) < 2:
         return False
     exceptions = 0;

@@ -2,11 +2,13 @@
 
 import sys
 #from algo import *
-from bgearSort import *
+from bgearSort import bgearSort
 
 
-args = [int(i) for i in sys.argv[1:]]
+# args = [int(i) for i in sys.argv[1:]]
 
 #algoSort()
-bgearSort(args, [])
-# print(a)
+count = bgearSort([int(i) for i in sys.argv[1:]], [])
+
+print()
+print("Number of moves: ", count)

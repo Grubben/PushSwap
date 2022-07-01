@@ -3,8 +3,10 @@ def s(stack, verbChar=""):
         tmp = stack[0]
         stack[0] = stack[1]
         stack[1] = tmp
-    if verbChar:
-        print("s" + verbChar)
+        if verbChar:
+            print("s" + verbChar)
+        return 1
+    return 0
 
 # # def sa():
 # #     print("sa")
@@ -23,8 +25,10 @@ def p(stack1, stack2, verbChar=""):
     if stack2:
         stack1.insert(0, stack2[0])
         stack2.pop(0)
-    if verbChar:
-        print("p" + verbChar)
+        if verbChar:
+            print("p" + verbChar)
+        return 1
+    return 0
 
 # def pa():
 #     print("pa")
@@ -39,8 +43,10 @@ def r(stack, verbChar=""):
     if stack:
         tmp = stack.pop(0)
         stack.append(tmp)
-    if verbChar:
-        print("r" + verbChar)
+        if verbChar:
+            print("r" + verbChar)
+        return 1
+    return 0
 
 # def ra():
 #     print("ra")
@@ -59,8 +65,10 @@ def rr(stack, verbChar=""):
     if stack:
         tmp = stack.pop()
         stack.insert(0, tmp)
-    if verbChar:
-        print("rr" + verbChar)
+        if verbChar:
+            print("rr" + verbChar)
+        return 1
+    return 0
 
 # def rra():
 #     print("rra")

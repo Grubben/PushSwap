@@ -1,13 +1,13 @@
 from ops import s, p, r, rr
-from stackops import set_ascending, set_descending, drain, giradaDetectorP
+from stackops import set_ascending, set_descending, drain, turnedP
 
 def bgearSort(a, b):
     moves = 0
 
     if sorted(a) == a:
         return 0
-    if giradaDetectorP(a):
-        while giradaDetectorP(a):
+    if turnedP(a):
+        while turnedP(a):
             # set_ascending(a)
             r(a, "a") # rra might be more efficient in some cases
             moves += 1
@@ -17,7 +17,7 @@ def bgearSort(a, b):
     moves += 1
 
     while a:
-        if giradaDetectorP(a):
+        if turnedP(a):
             print("Turned.")
             moves += set_ascending(a)
             print("Unturned a")

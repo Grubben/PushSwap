@@ -83,6 +83,7 @@ def miniswitchedP(stack, verifierF):
     return ordered
 
 
+
 def switchedP(stack, verifierF):
     """A switched stack is in the order specified by
         verifierF with a single swap"""
@@ -115,7 +116,24 @@ def switchedP(stack, verifierF):
             rr(replica)
             rotates += 1
         index += 1
-    return False
+    return (-1)
+    
+def swap_at(stack, index, verbChar=""):
+    #TODO: Can be more optimized!!! rr might be better
+    # than r and vice versa
+    if not stack and not index:
+        raise Exception()
+    moves = 0
+    rotates = index
+    while rotates:
+        moves += r(stack, verbChar)
+        rotates -= 1
+    moves += s(stack, verbChar)
+    while rotates < index:
+        moves += rr(stack, verbChar)
+        rotates += 1
+    # s(stack[index:]) in C
+    return moves
 
 # def set_orderb_for(newnum):
 #     # Can be a LOT more optimized

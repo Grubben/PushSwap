@@ -1,5 +1,5 @@
 from ops import s, p, r, rr
-from stackops import set_ascending, set_descending, drain, turnedP
+from stackops import *
 
 def bgearSort(a, b):
     moves = 0
@@ -12,6 +12,8 @@ def bgearSort(a, b):
             r(a, "a") # rra might be more efficient in some cases
             moves += 1
         return moves
+    if switchedP(a, is_ascendingP) > (-1):
+            return swap_at(a, switchedP(a, is_ascendingP), "a")
 
     p(b, a, "b")
     moves += 1

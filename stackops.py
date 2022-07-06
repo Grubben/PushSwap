@@ -4,8 +4,15 @@ Created on Thu Jun 30 13:57:12 2022
 
 @author: fc53519
 """
-
+import copy
 from ops import s, p, r, rr
+
+
+def is_ascendingP(stack):
+    return sorted(stack) == stack
+
+def is_descendingP(stack):
+    return sorted(stack, reverse=True) == stack
 
 def set_ascending(stack, verbChar=""):
     """[1, 2, 3]"""
@@ -49,8 +56,8 @@ def drain(giver, receiver, verbChar=""):
     print(giver)
     return moves
 
-def giradaDetectorP(stack):
-    """Returns whether the stack is girada or not"""
+def turnedP(stack):
+    """Returns whether the stack is Turned or not"""
     if len(stack) < 2:
         return False
     exceptions = 0;
@@ -65,6 +72,50 @@ def giradaDetectorP(stack):
         i += 1;
     return True
 
+def miniswitchedP(stack, verifierF):
+    """Checks whether a single swap
+        orders the stack in the order
+        specified by verifierF
+        eg: verifierF can be is_ascendingP"""
+    s(stack)
+    ordered = verifierF(stack)
+    s(stack) # undoes the swap
+    return ordered
+
+
+def switchedP(stack, verifierF):
+    """A switched stack is in the order specified by
+        verifierF with a single swap"""
+    replica = copy.deepcopy(stack)
+    index = 0
+    rotates = 0
+    while index < len(replica):
+        rotates = index
+        while rotates:
+            r(replica)
+            rotates -= 1
+
+        s(replica)
+
+        while rotates < index:
+            rr(replica)
+            rotates += 1
+
+        if verifierF(replica):
+            return index
+        
+        # Goes back to undo the swap
+        while rotates:
+            r(replica)
+            rotates -= 1
+
+        s(replica)
+
+        while rotates < index:
+            rr(replica)
+            rotates += 1
+        index += 1
+    return False
 
 # def set_orderb_for(newnum):
 #     # Can be a LOT more optimized

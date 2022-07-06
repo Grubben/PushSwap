@@ -1,4 +1,5 @@
 def s(stack, verbChar=""):
+    """Swap the first 2 elements at the top of stack"""
     if stack and stack[0] and stack[1]:
         tmp = stack[0]
         stack[0] = stack[1]
@@ -40,6 +41,7 @@ def p(stack1, stack2, verbChar=""):
 
 
 def r(stack, verbChar=""):
+    """The first element becomes the last one"""
     if stack:
         tmp = stack.pop(0)
         stack.append(tmp)
@@ -62,6 +64,7 @@ def r(stack, verbChar=""):
 
 
 def rr(stack, verbChar=""):
+    """The last element becomes the first one"""
     if stack:
         tmp = stack.pop()
         stack.insert(0, tmp)

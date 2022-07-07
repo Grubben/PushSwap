@@ -1,6 +1,6 @@
 def s(stack, verbChar=""):
     """Swap the first 2 elements at the top of stack"""
-    if stack and stack[0] and stack[1]:
+    if stack and len(stack) > 1:
         tmp = stack[0]
         stack[0] = stack[1]
         stack[1] = tmp

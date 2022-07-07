@@ -5,7 +5,7 @@ Created on Thu Jun 30 13:57:12 2022
 @author: fc53519
 """
 import copy
-from ops import s, p, r, rr
+from ops import *
 
 
 def is_ascendingP(stack):
@@ -143,3 +143,46 @@ def swap_at(stack, index, verbChar=""):
 #     while newnum > stackb[0]:
 #         rb()
 #     pb()
+
+def prepTop(stack, chunks=5):
+    """Rotates the given stack to get the more efficient
+        lower number to the top"""
+    # No negative numbers!
+    smallest = min(stack)
+    biggest = max(stack)
+    chunkSize = (biggest - smallest + chunks) // chunks
+
+    lookChunk = 0
+    while lookChunk < chunks:
+        found = False
+        topi = 0
+        while topi < len(stack): 
+            if (stack[topi] >= smallest + chunkSize * lookChunk and 
+                stack[topi] < smallest + chunkSize * (lookChunk + 1)):
+                found = True
+                break
+            topi += 1
+
+        boti = len(stack) - 1
+        while boti >= 0:
+            if (stack[boti] >= smallest + chunkSize * lookChunk and 
+                stack[boti] < smallest + chunkSize * (lookChunk + 1)):
+                found = True
+                break
+            boti -= 1
+
+        if found:
+            boti = len(stack) - boti
+            if topi <= boti:
+                rotate(stack, topi, "?")
+            else:
+                revRotate(stack, boti, "?")
+            return True
+
+        lookChunk += 1
+    # Shouldn't happen
+    return False
+
+a = [75, 68, 100, 43, 23, 2, 98, 77]
+print(prepTop(a))
+print(a)

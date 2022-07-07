@@ -24,6 +24,9 @@ def bgearSort(a, b):
             moves += set_ascending(a)
             print("Unturned a")
         
+#        if switchedP(a, is_ascendingP) > (-1):
+#            swap_at(a, switchedP(a, is_ascendingP), "a")
+        
         # if a is in order and everything is bigger than in b
         # then there is no need to pb
         # Just order b and pa!

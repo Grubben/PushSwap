@@ -183,6 +183,7 @@ def prepTop(stack, chunks=5):
     # Shouldn't happen
     return False
 
-a = [75, 68, 100, 43, 23, 2, 98, 77]
-print(prepTop(a))
-print(a)
+if __name__ == "__main__":
+    a = [75, 68, 100, 43, 23, 2, 98, 77]
+    print(prepTop(a))
+    print(a)

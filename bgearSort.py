@@ -16,21 +16,22 @@ def bgearSort(a, b):
     if switchedP(a, is_ascendingP) > (-1):
             return swap_at(a, switchedP(a, is_ascendingP), "a")
 
-    chunks = len(a) // 10
-    if len(a) > 100:
-        chunks = 100
+    # chunks = len(a) // 2 + 1
+    chunks = 1
+    # if len(a) > 100:
+    #     chunks = 100
 
     p(b, a, "b")
     moves += 1
 
     while a:
-        # if turnedP(a):
-        #     print("Turned.")
-        #     moves += set_ascending(a)
-        #     print("Unturned a")
+        if turnedP(a):
+            print("Turned.")
+            moves += set_ascending(a)
+            print("Unturned a")
         
-        # if switchedP(a, is_ascendingP) > (-1):
-        #    swap_at(a, switchedP(a, is_ascendingP), "a")
+        if switchedP(a, is_ascendingP) > (-1):
+           swap_at(a, switchedP(a, is_ascendingP), "a")
         
         # if a is in order and everything is bigger than in b
         # then there is no need to pb
@@ -40,7 +41,7 @@ def bgearSort(a, b):
             return moves
 
         # Put smallest number on top by rev/rotating
-        prepTop(a, chunks)
+        moves += prepTop(a, chunks)
 
         # Top of A is smaller than everything in B
         if a[0] < min(b):
@@ -56,17 +57,17 @@ def bgearSort(a, b):
             moves += 1
 
         # Top of A is not smaller nor bigger than numbers in B
-        else: # in the 
+        else:
             #TODO: optmize this a lot!!!
             moves += set_descending(b)
-            while a[0] < b[0]:
-                r(b, "b")
-                moves += 1
+            # while a[0] < b[0]:
+            #     r(b, "b")
+            #     moves += 1
             p(b, a, "b")
             moves += 1
 
-        print(a)
-        print(b)
+        # print(a)
+        # print(b)
 
 
     while b[0] != max(b):

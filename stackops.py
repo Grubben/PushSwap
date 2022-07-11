@@ -152,6 +152,8 @@ def prepTop(stack, chunks=5):
     biggest = max(stack)
     chunkSize = (biggest - smallest + chunks) // chunks
 
+    moves = 0
+
     lookChunk = 0
     while lookChunk < chunks:
         found = False
@@ -174,14 +176,14 @@ def prepTop(stack, chunks=5):
         if found:
             boti = len(stack) - boti
             if topi <= boti:
-                rotate(stack, topi, "?")
+                moves += rotate(stack, topi, "?")
             else:
-                revRotate(stack, boti, "?")
-            return True
+                moves += revRotate(stack, boti, "?")
+            return moves
 
         lookChunk += 1
     # Shouldn't happen
-    return False
+    return moves
 
 if __name__ == "__main__":
     a = [75, 68, 100, 43, 23, 2, 98, 77]

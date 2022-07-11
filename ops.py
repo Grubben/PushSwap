@@ -53,9 +53,11 @@ def r(stack, verbChar=""):
 def rotate(stack, howMany, verbChar=""):
     """Normal rotates the stack
         the amount specified"""
+    q = howMany
     while howMany > 0:
         r(stack, verbChar)
         howMany -= 1
+    return q
 
 # def ra():
 #     print("ra")
@@ -83,9 +85,11 @@ def rr(stack, verbChar=""):
 def revRotate(stack, howMany, verbChar=""):
     """Reverse rotates the stack
         the amount specififed"""
+    q = howMany
     while howMany > 0:
         rr(stack, verbChar)
         howMany -= 1
+    return q
 
 # def rra():
 #     print("rra")

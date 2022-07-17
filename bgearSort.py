@@ -21,6 +21,7 @@ def bgearSort(a, b):
     # if len(a) > 100:
     #     chunks = 100
 
+    moves += prepTop(a, chunks)
     p(b, a, "b")
     moves += 1
 
@@ -38,7 +39,9 @@ def bgearSort(a, b):
         # Just order b and pa!
         if sorted(a) == a and min(a) > max(b):
             moves += drain(b, a, "a")
-            return moves
+            print(a)
+            # return moves
+            break
 
         # Put smallest number on top by rev/rotating
         moves += prepTop(a, chunks)
@@ -60,9 +63,9 @@ def bgearSort(a, b):
         else:
             #TODO: optmize this a lot!!!
             moves += set_descending(b)
-            # while a[0] < b[0]:
-            #     r(b, "b")
-            #     moves += 1
+            while a[0] < b[0]:
+                r(b, "b")
+                moves += 1
             p(b, a, "b")
             moves += 1
 
@@ -70,7 +73,7 @@ def bgearSort(a, b):
         # print(b)
 
 
-    while b[0] != max(b):
+    while sorted(a) != a and b and b[0] != max(b):
         r(b, "b")
         moves += 1
     print(a)
@@ -82,6 +85,6 @@ def bgearSort(a, b):
         moves += 1
 
     print()
-    #print(a)
-    print(b)
+    print(a)
+    # print(b)
     return moves

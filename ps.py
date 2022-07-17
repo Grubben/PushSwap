@@ -10,5 +10,5 @@ from bgearSort import bgearSort
 #algoSort()
 count = bgearSort([int(i) for i in sys.argv[1:]], [])
 
-print()
+# print()
 print("Number of moves: ", count)

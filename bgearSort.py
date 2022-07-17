@@ -17,9 +17,14 @@ def bgearSort(a, b):
             return swap_at(a, switchedP(a, is_ascendingP), "a")
 
     # chunks = len(a) // 2 + 1
-    chunks = 1
+    if len(a) < 50:
+        chunks = 3
+    elif len(a) <= 100:
+        chunks = 7
     # if len(a) > 100:
-    #     chunks = 100
+    else:
+        # chunks = len(a) // 100 * 7
+        chunks = 10
 
     moves += prepTop(a, chunks)
     p(b, a, "b")

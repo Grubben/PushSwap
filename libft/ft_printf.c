@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amaria-d <amaria-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amc <amc@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:48:45 by amaria-d          #+#    #+#             */
-/*   Updated: 2022/02/16 13:57:56 by amaria-d         ###   ########.fr       */
+/*   Updated: 2022/07/25 23:57:33 by amc              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	convert(const char *str, va_list pargs)
 {
 	int		count;
 
+	count = 0;
 	if (*str == 'c')
 		count = to_char(va_arg(pargs, unsigned int));
 	if (*str == 'p')

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	is_replace(const char *str);
 int	convert(const char *str, va_list pargs);

@@ -6,17 +6,19 @@
 /*   By: amc <amc@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 19:39:23 by amaria-d          #+#    #+#             */
-/*   Updated: 2021/11/13 11:36:16 by amc              ###   ########.fr       */
+/*   Updated: 2022/07/25 22:33:48 by amc              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <ctype.h>
+# include <stdarg.h>
 
 int		ft_isalpha(int c);
 
@@ -125,4 +127,35 @@ void	ft_lstprint(t_list *head);
 int		ft_smin(long long a, long long b);
 
 int		ft_smax(long long a, long long b);
+
+/* FT_PRINTF */
+int		ft_printf(const char *format, ...);
+
+int		to_char(char c);
+
+int		to_pointer(void *ptr);
+
+int		to_string(char *ptr);
+
+int		to_decimal(int n);
+
+int		to_udecimal(unsigned int n);
+
+int		to_lohexadecimal(unsigned int n);
+
+int		to_uphexadecimal(unsigned int n);
+
+int		to_percent(void);
+
+int		base_check(char *base);
+
+size_t	num_len(ssize_t nbr);
+
+int		ft_putnbr_base(ssize_t nbr, char *base);
+
+int		ft_putunbr_base(size_t nbr, char *base);
+
+size_t	simple_putunbr_base(size_t nbr, char *base);
+
+
 #endif

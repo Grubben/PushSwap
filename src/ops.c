@@ -71,6 +71,7 @@ int	rr(t_list **stack)
 	return (0);
 }
 
+/*
 int	main(void)
 {
 	t_list	*stack1;
@@ -155,3 +156,4 @@ int	main(void)
 
 	ft_printf("%d\n", counter);
 }
+*/

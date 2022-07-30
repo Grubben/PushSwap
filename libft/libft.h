@@ -6,7 +6,7 @@
 /*   By: amc <amc@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 19:39:23 by amaria-d          #+#    #+#             */
-/*   Updated: 2022/07/25 22:33:48 by amc              ###   ########.fr       */
+/*   Updated: 2022/07/30 15:33:46 by amc              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,8 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /* MINE */
+t_list	*ft_lstindex(t_list *lst, ssize_t index);
+
 int		ft_charinside(char c, const char *s);
 
 char	*ft_strnchr(char *s, int c);

@@ -19,6 +19,7 @@ int s(t_list **stack)
 	return (0);
 
 }
+
 // Take the first element at the top of stack2 and put it at the top of stack1
 int	p(t_list **stack1, t_list **stack2)
 {
@@ -33,6 +34,7 @@ int	p(t_list **stack1, t_list **stack2)
 	}
 	return (0);
 }
+
 // The first element becomes the last one
 int	r(t_list **stack)
 {
@@ -51,8 +53,8 @@ int	r(t_list **stack)
 	return (0);
 }
 
+// The last element becomes the first one
 int	rr(t_list **stack)
-//TODO: TBC and verified
 {
 	t_list	*newHead;
 	t_list	*newTail;
@@ -133,13 +135,23 @@ int	main(void)
 	// ft_lstprint(stack2);
 
 
-	ft_printf("\nChecking R function\n");
-	// Check the r func
+	// ft_printf("\nChecking R function\n");
+	// // Check the r func
+	// ft_lstprint(stack1);
+	// counter += r(&stack1);
+	// counter += r(&	stack1);
+	// ft_printf("\n");
+	// ft_lstprint(stack1);
+
+
+	ft_printf("\nChecking RR function\n");
+	// Check the rr func
 	ft_lstprint(stack1);
-	counter += r(&stack1);
-	counter += r(&	stack1);
+	counter += rr(&stack1);
+	// counter += rr(&	stack1);
 	ft_printf("\n");
 	ft_lstprint(stack1);
+
 
 	ft_printf("%d\n", counter);
 }

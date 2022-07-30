@@ -33,19 +33,19 @@ int	p(t_list **stack1, t_list **stack2)
 	}
 	return (0);
 }
-
+// The first element becomes the last one
 int	r(t_list **stack)
-//TODO: TBC and verified
 {
 	t_list *newTail;
 	t_list	*newHead;
 
-	if (stack)
+	if (stack && *stack)
 	{
 		newTail = *stack;
 		newHead = (*stack) -> next;
 		newTail -> next = NULL;
 		ft_lstadd_back(&newHead, newTail);
+		*stack = newHead;
 		return (1);
 	}
 	return (0);
@@ -104,34 +104,42 @@ int	main(void)
 
 	ft_lstprint(stack2);
 
-	ft_printf("\nChecking S function\n");
-	// Check if s func works
-	printf("%d\n", s(&stack1));
-	ft_lstprint(stack1);
-	s(&stack1);
+	// ft_printf("\nChecking S function\n");
+	// // Check if s func works
+	// printf("%d\n", s(&stack1));
+	// ft_lstprint(stack1);
+	// s(&stack1);
 
-	ft_printf("\nChecking P function\n");
-	// Check if p func works
-	counter += p(&stack1, &stack2);
-	ft_lstprint(stack1);
-	ft_printf("\n");
-	ft_lstprint(stack2);
+	// ft_printf("\nChecking P function\n");
+	// // Check if p func works
+	// counter += p(&stack1, &stack2);
+	// ft_lstprint(stack1);
+	// ft_printf("\n");
+	// ft_lstprint(stack2);
+
+	// // ft_printf("\n");
+	// ft_printf("\n");
+	// counter += p(&stack2, &stack1);
+	// counter += p(&stack2, &stack1);
+	// counter += p(&stack2, &stack1);
+	// counter += p(&stack2, &stack1);
+	// counter += p(&stack2, &stack1);
+	// counter += p(&stack2, &stack1);
+	// ft_lstprint(stack1);
+	// printf("%d\n", ft_lstsize(stack1)); // == 0
+	// printf("%d\n", ft_lstsize(stack2)); // == 5
 
 	// ft_printf("\n");
-	ft_printf("\n");
-	counter += p(&stack2, &stack1);
-	counter += p(&stack2, &stack1);
-	counter += p(&stack2, &stack1);
-	counter += p(&stack2, &stack1);
-	counter += p(&stack2, &stack1);
-	counter += p(&stack2, &stack1);
-	ft_lstprint(stack1);
-	printf("%d\n", ft_lstsize(stack1)); // == 0
-	printf("%d\n", ft_lstsize(stack2)); // == 5
+	// ft_lstprint(stack2);
 
+
+	ft_printf("\nChecking R function\n");
+	// Check the r func
+	ft_lstprint(stack1);
+	counter += r(&stack1);
+	counter += r(&	stack1);
 	ft_printf("\n");
-	ft_lstprint(stack2);
+	ft_lstprint(stack1);
 
 	ft_printf("%d\n", counter);
-
 }

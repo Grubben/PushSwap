@@ -1,6 +1,6 @@
 #include "../header/push_swap.h"
 
-//Swap the first 2 elements at the top of stack
+// Swap the first 2 elements at the top of stack
 int s(t_list **stack)
 {
 
@@ -19,13 +19,12 @@ int s(t_list **stack)
 	return (0);
 
 }
-
+// Take the first element at the top of stack2 and put it at the top of stack1
 int	p(t_list **stack1, t_list **stack2)
-//TODO: TBC and verified
 {
 	t_list	*newHeadS1;
 		
-	if (stack2)
+	if ((stack2 && stack1) && (*stack2 && *stack1))
 	{
 		newHeadS1 = *stack2;
 		(*stack2) = (*stack2) -> next;
@@ -72,28 +71,67 @@ int	rr(t_list **stack)
 
 int	main(void)
 {
-	t_list	*head;
+	t_list	*stack1;
+	t_list	*stack2;
 	t_list	el;
+	int		counter;
 
-	head = NULL;
+	counter = 0;
+	stack1 = NULL;
 
 	el.content = (void *)"good";
 	el.next = NULL;
 
-	printf("%d\n", ft_lstsize(head)); // == 0
+	printf("%d\n", ft_lstsize(stack1)); // == 0
 
-	head = ft_lstnew((void *)"hello");
-	printf("%d\n", ft_lstsize(head)); // == 1
+	stack1 = ft_lstnew((void *)"hello");
+	printf("%d\n", ft_lstsize(stack1)); // == 1
 
-	ft_lstadd_front(&head, &el);
-	printf("%d\n", ft_lstsize(head)); // == 2
+	ft_lstadd_front(&stack1, &el);
+	printf("%d\n", ft_lstsize(stack1)); // == 2
 
-	ft_lstadd_back(&head, ft_lstnew((void *)"bye"));
-	printf("%d\n", ft_lstsize(head)); // == 2
+	ft_lstadd_back(&stack1, ft_lstnew((void *)"bye"));
+	printf("%d\n", ft_lstsize(stack1)); // == 3
 
-	ft_lstprint(head);
+	ft_lstadd_back(&stack1, ft_lstnew((void *)"greetings"));
+	printf("%d\n", ft_lstsize(stack1)); // == 4
 
+	ft_lstprint(stack1);
+
+	stack2 = ft_lstnew((void *)"Morning");
+	ft_lstadd_back(&stack2, ft_lstnew((void *)"Madam"));
+	printf("%d\n", ft_lstsize(stack2)); // == 1
+
+	ft_lstprint(stack2);
+
+	ft_printf("\nChecking S function\n");
 	// Check if s func works
-	printf("%d\n", s(&head));
-	ft_lstprint(head);
+	printf("%d\n", s(&stack1));
+	ft_lstprint(stack1);
+	s(&stack1);
+
+	ft_printf("\nChecking P function\n");
+	// Check if p func works
+	counter += p(&stack1, &stack2);
+	ft_lstprint(stack1);
+	ft_printf("\n");
+	ft_lstprint(stack2);
+
+	// ft_printf("\n");
+	ft_printf("\n");
+	counter += p(&stack2, &stack1);
+	counter += p(&stack2, &stack1);
+	counter += p(&stack2, &stack1);
+	counter += p(&stack2, &stack1);
+	counter += p(&stack2, &stack1);
+	counter += p(&stack2, &stack1);
+	ft_lstprint(stack1);
+	printf("%d\n", ft_lstsize(stack1)); // == 0
+	printf("%d\n", ft_lstsize(stack2)); // == 5
+
+	ft_printf("\n");
+	ft_lstprint(stack2);
+
+	ft_printf("%d\n", counter);
+
 }

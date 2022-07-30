@@ -23,6 +23,7 @@ def s(stack, verbChar=""):
 
 
 def p(stack1, stack2, verbChar=""):
+    """Take the first element at the top of b and put it at the top of a"""
     if stack2:
         stack1.insert(0, stack2[0])
         stack2.pop(0)

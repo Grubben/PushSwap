@@ -10,16 +10,43 @@ int		ft_lstmax(t_list *lst)
 	if (!lst)
 	{
 		ft_printf("ERROR");
-		*(void *)NULL = 0;
+		// exit(-1);
 	}
-	max = lst->content;
+	max = *(int *)(lst->content);
 	while (lst->next != NULL)
 	{
 		lst = lst -> next;
-		if (lst -> content > max)
-			max = lst -> content;
+		if (*(int *)(lst->content) > max)
+			max = *(int *)(lst->content);
 	}
-	if (lst -> content > max)
-		max = lst -> content;
 	return (max);
 }
+
+/*
+int	main(void)
+{
+	t_list	*stack1;
+	t_list	*stack2;
+	t_list	el;
+	int		counter;
+	int		n[4] = {-12,3,-1,8};
+
+	counter = 0;
+	stack1 = NULL;
+	stack2 = NULL;
+
+	el.content = (void *)(&n);
+	el.next = NULL;
+
+	
+	stack1 = &el;
+
+	ft_lstadd_back(&stack1, ft_lstnew((void *)&(n[1])));
+
+	ft_lstadd_back(&stack1, ft_lstnew((void *)&(n[2])));
+
+	ft_lstadd_back(&stack1, ft_lstnew((void *)&(n[3])));
+
+	ft_printf("%d\n", ft_lstmax(stack1));
+}
+*/

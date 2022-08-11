@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstindex.c                                      :+:      :+:    :+:   */
+/*   ft_lstget_item.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amc <amc@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 15:56:37 by amc               #+#    #+#             */
-/*   Updated: 2022/07/29 15:56:47 by amc              ###   ########.fr       */
+/*   Updated: 2022/08/11 10:58:58 by amc              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstindex(t_list *lst, ssize_t index)
+t_list	*ft_lstget_item(t_list *lst, ssize_t index)
 {
 	int		size;
 	int		i;

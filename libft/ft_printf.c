@@ -48,7 +48,7 @@ int	is_replace(const char *str)
 		{
 			return (1);
 		}
-		printf("This shouldn't happen, not reachable.");
+		//printf("This shouldn't happen, not reachable.");
 		return (0);
 	}
 	return (0);

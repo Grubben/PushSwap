@@ -6,7 +6,7 @@
 /*   By: amc <amc@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 19:39:23 by amaria-d          #+#    #+#             */
-/*   Updated: 2022/08/02 23:50:14 by amc              ###   ########.fr       */
+/*   Updated: 2022/08/11 10:26:23 by amc              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define LIBFT_H
 
 # include <unistd.h>
-# include <stdio.h>
+// # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <ctype.h>

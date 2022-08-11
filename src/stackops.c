@@ -36,13 +36,19 @@ int	is_descendingP(t_list *stack)
 	return (1);
 }
 
+int	set_ascending(t_list *stack)
+{
+	int	moves;
+	
+}
+
 int	main(void)
 {
 	t_list	*stack1;
 	// t_list	*stack2;
 	t_list	el;
 	int		counter;
-	int		n[4] = {4,3,1,2};
+	int		n[4] = {1,2,3,4};
 
 	counter = 0;
 	stack1 = NULL;

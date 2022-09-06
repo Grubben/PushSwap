@@ -62,7 +62,7 @@ int	rr(t_list **stack)
 	if (stack)
 	{
 		newHead = ft_lstlast(*stack);
-		newTail = ft_lstindex(*stack, -2);
+		newTail = ft_lstget_item(*stack, -2);
 		newTail -> next = NULL;
 		newHead -> next = *stack;
 		*stack = newHead;
@@ -85,25 +85,25 @@ int	main(void)
 	el.content = (void *)"good";
 	el.next = NULL;
 
-	printf("%d\n", ft_lstsize(stack1)); // == 0
+	ft_printf("%d\n", ft_lstsize(stack1)); // == 0
 
 	stack1 = ft_lstnew((void *)"hello");
-	printf("%d\n", ft_lstsize(stack1)); // == 1
+	ft_printf("%d\n", ft_lstsize(stack1)); // == 1
 
 	ft_lstadd_front(&stack1, &el);
-	printf("%d\n", ft_lstsize(stack1)); // == 2
+	ft_printf("%d\n", ft_lstsize(stack1)); // == 2
 
 	ft_lstadd_back(&stack1, ft_lstnew((void *)"bye"));
-	printf("%d\n", ft_lstsize(stack1)); // == 3
+	ft_printf("%d\n", ft_lstsize(stack1)); // == 3
 
 	ft_lstadd_back(&stack1, ft_lstnew((void *)"greetings"));
-	printf("%d\n", ft_lstsize(stack1)); // == 4
+	ft_printf("%d\n", ft_lstsize(stack1)); // == 4
 
 	ft_lstprint(stack1);
 
 	stack2 = ft_lstnew((void *)"Morning");
 	ft_lstadd_back(&stack2, ft_lstnew((void *)"Madam"));
-	printf("%d\n", ft_lstsize(stack2)); // == 1
+	ft_printf("%d\n", ft_lstsize(stack2)); // == 1
 
 	ft_lstprint(stack2);
 

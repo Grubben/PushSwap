@@ -13,7 +13,7 @@ LIBS		= ft
 ## COMPILATION
 CC 			= gcc
 # Compilation Flags
-CFLAGS		= -g3 -Wall -Wextra -Werror -L$(DEPSDIR)
+CFLAGS		= -g3 -Wall -Wextra -Werror
 
 ## LINKAGE
 LINKER		= gcc

@@ -6,7 +6,7 @@
 /*   By: amc <amc@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 19:39:23 by amaria-d          #+#    #+#             */
-/*   Updated: 2022/08/11 10:55:34 by amc              ###   ########.fr       */
+/*   Updated: 2022/09/07 09:52:59 by amc              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,10 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /* MINE */
+
+/**
+ * Acts like python array[n]
+ */
 t_list	*ft_lstget_item(t_list *lst, ssize_t index);
 
 int		ft_lstmax(t_list *lst);

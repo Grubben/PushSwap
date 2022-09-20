@@ -36,12 +36,60 @@ int	is_descendingP(t_list *stack)
 	return (1);
 }
 
+/*
+ * [1, 2, 3]
+ */
 int	set_ascending(t_list *stack)
 {
 	int	moves;
 	
+	moves = 0;
+	if (ft_lstindex(stack, ft_lstmax(stack)) > (ft_len(stack) / 2))
+	{
+		while (*(int *)(stack->content) != ft_lstmin(stack))
+		{
+			rr(&stack);
+			moves++;
+		}
+	}
+	else
+	{
+		while (*(int *)(stack->content) != ft_lstmin(stack))
+		{
+			r(&stack);
+			moves++;
+		}
+	}
+	return moves;
 }
 
+/*
+ * [3, 2, 1]
+ */
+int	set_descending(t_list *stack)
+{
+	int	moves;
+	
+	moves = 0;
+	if (ft_lstindex(stack, ft_lstmax(stack)) > (ft_len(stack) / 2))
+	{
+		while (*(int *)(stack->content) != ft_lstmax(stack))
+		{
+			rr(&stack);
+			moves++;
+		}
+	}
+	else
+	{
+		while (*(int *)(stack->content) != ft_lstmax(stack))
+		{
+			r(&stack);
+			moves++;
+		}
+	}
+	return moves;
+}
+// /*
 int	main(void)
 {
 	t_list	*stack1;
@@ -72,3 +120,4 @@ int	main(void)
 	ft_printf("%d\n", is_ascendingP(stack1));
 	ft_printf("%d\n", is_descendingP(stack1));
 }
+// */

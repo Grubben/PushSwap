@@ -83,12 +83,31 @@ int	set_descending(t_list **stack)
 	{
 		while (*(int *)(stack->content) != ft_lstmax(stack))
 		{
-			r(&stack);
+			r(stack);
 			moves++;
 		}
 	}
 	return moves;
 }
+
+
+/*
+ * Drains all nums in giver to receiver with p
+ */
+int	drain(t_list **giver, t_list **receiver)
+{
+	size_t	moves;
+	
+	moves = set_descending(giver);
+	while (*giver)
+	{
+		p(receiver, giver);
+		moves++;
+	}
+	return moves;
+}
+
+
 // /*
 int	main(void)
 {

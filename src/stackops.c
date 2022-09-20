@@ -39,7 +39,7 @@ int	is_descendingP(t_list *stack)
 /*
  * [1, 2, 3]
  */
-int	set_ascending(t_list *stack)
+int	set_ascending(t_list **stack)
 {
 	int	moves;
 	
@@ -48,7 +48,7 @@ int	set_ascending(t_list *stack)
 	{
 		while (*(int *)(stack->content) != ft_lstmin(stack))
 		{
-			rr(&stack);
+			rr(stack);
 			moves++;
 		}
 	}
@@ -56,7 +56,7 @@ int	set_ascending(t_list *stack)
 	{
 		while (*(int *)(stack->content) != ft_lstmin(stack))
 		{
-			r(&stack);
+			r(stack);
 			moves++;
 		}
 	}
@@ -66,7 +66,7 @@ int	set_ascending(t_list *stack)
 /*
  * [3, 2, 1]
  */
-int	set_descending(t_list *stack)
+int	set_descending(t_list **stack)
 {
 	int	moves;
 	
@@ -75,7 +75,7 @@ int	set_descending(t_list *stack)
 	{
 		while (*(int *)(stack->content) != ft_lstmax(stack))
 		{
-			rr(&stack);
+			rr(stack);
 			moves++;
 		}
 	}

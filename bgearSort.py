@@ -1,5 +1,6 @@
 from ops import s, p, r, rr
-from stackops import *
+from stackops import turnedP, is_ascendingP, swap_at, switchedP, prepTop, set_ascending, set_descending, drain
+
 
 def bgearSort(a, b):
     moves = 0

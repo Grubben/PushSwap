@@ -6,7 +6,7 @@
 /*   By: amc <amc@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 19:39:23 by amaria-d          #+#    #+#             */
-/*   Updated: 2022/09/23 13:21:32 by amc              ###   ########.fr       */
+/*   Updated: 2022/09/23 19:10:58 by amc              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,11 @@ size_t	ft_lstindex(t_list *stack, int value);
  * Acts like python array[n]
  */
 t_list	*ft_lstget_item(t_list *lst, ssize_t index);
+
+/*
+Presumes t_list:content is originally int type
+*/
+int	ft_lstmin(t_list *lst);
 
 int		ft_lstmax(t_list *lst);
 

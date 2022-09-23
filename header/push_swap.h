@@ -12,4 +12,25 @@ typedef struct s_ilist
 }			t_ilist;
 
 
+/*
+ * Swap the first 2 elements at the top of stack
+ */
+int s(t_list **stack);
+
+/*
+ * Take the first element at the top of stack2 and put it at the top of stack1
+ */
+int	p(t_list **stack1, t_list **stack2);
+
+/*
+ * The first element becomes the last one
+ */
+int	r(t_list **stack);
+
+/*
+ * The last element becomes the first one
+ */
+int	rr(t_list **stack);
+
+
 # endif

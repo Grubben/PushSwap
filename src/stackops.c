@@ -44,9 +44,9 @@ int	set_ascending(t_list **stack)
 	int	moves;
 	
 	moves = 0;
-	if (ft_lstindex(stack, ft_lstmax(stack)) > (ft_len(stack) / 2))
+	if (ft_lstindex(*stack, ft_lstmax(*stack)) > (ft_lstlen(*stack) / 2))
 	{
-		while (*(int *)(stack->content) != ft_lstmin(stack))
+		while (**(int **)((*stack)->content) != ft_lstmin(*stack))
 		{
 			rr(stack);
 			moves++;
@@ -54,7 +54,7 @@ int	set_ascending(t_list **stack)
 	}
 	else
 	{
-		while (*(int *)(stack->content) != ft_lstmin(stack))
+		while (**(int **)((*stack)->content) != ft_lstmin(*stack))
 		{
 			r(stack);
 			moves++;
@@ -71,9 +71,9 @@ int	set_descending(t_list **stack)
 	int	moves;
 	
 	moves = 0;
-	if (ft_lstindex(stack, ft_lstmax(stack)) > (ft_len(stack) / 2))
+	if (ft_lstindex(*stack, ft_lstmax(*stack)) > (ft_lstlen(*stack) / 2))
 	{
-		while (*(int *)(stack->content) != ft_lstmax(stack))
+		while (**(int **)((*stack)->content) != ft_lstmax(*stack))
 		{
 			rr(stack);
 			moves++;
@@ -81,7 +81,7 @@ int	set_descending(t_list **stack)
 	}
 	else
 	{
-		while (*(int *)(stack->content) != ft_lstmax(stack))
+		while (**(int *)((*stack)->content) != ft_lstmax(*stack))
 		{
 			r(stack);
 			moves++;

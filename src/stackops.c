@@ -108,7 +108,32 @@ int	drain(t_list **giver, t_list **receiver)
 }
 
 
-// /*
+/*
+ * Returns whether the stack is Turned or not
+ */
+int	turnedP(t_list *stack)
+{
+	int	exceptions;
+	int	i;
+
+	if (ft_lstlen(stack) < 2)
+		return (0);
+	if (ft_lstget_item(stack, 0) < ft_lstget_item(stack, -1))
+		return (0);
+	exceptions = 0;
+	i = 0;
+	while (i < ft_lstlen(stack) - 1)
+	{
+		if (ft_lstgetitem(stack, i) > ft_lstgetitem(i + 1))
+		{
+			exceptions++;
+			if (exceptions > 1)
+				return (0);
+		}
+		i++;
+	}
+	return (1);
+}
 int	main(void)
 {
 	t_list	*stack1;
@@ -139,4 +164,4 @@ int	main(void)
 	ft_printf("%d\n", is_ascendingP(stack1));
 	ft_printf("%d\n", is_descendingP(stack1));
 }
-// */
+*/

@@ -6,7 +6,7 @@
 /*   By: amaria-d <amaria-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 19:39:23 by amaria-d          #+#    #+#             */
-/*   Updated: 2022/09/26 12:15:19 by amaria-d         ###   ########.fr       */
+/*   Updated: 2022/09/26 12:27:28 by amaria-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,13 +137,15 @@ t_list	*ft_lstget_item(t_list *lst, ssize_t index);
 Presumes t_list:content is originally int type
 */
 int	ft_lstmin(t_list *lst);
+int	ft_lstmax(t_list *lst);
 
+/*
+Presumes t_list:content is originally (char *) type
+*/
 void	ft_lstprint(t_list *head);
 
 t_list  *ft_lstcpy(t_list *lst);
 
-
-int		ft_lstmax(t_list *lst);
 
 int		ft_charinside(char c, const char *s);
 

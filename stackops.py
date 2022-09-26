@@ -86,7 +86,8 @@ def miniswitchedP(stack, verifierF):
 
 def switchedP(stack, verifierF):
     """A switched stack is in the order specified by
-        verifierF with a single swap"""
+        verifierF with a single swap
+        VerifierF is a Predicate"""
     if len(stack) < 2:
         return (-1)
     replica = copy.deepcopy(stack)

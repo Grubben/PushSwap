@@ -189,6 +189,9 @@ int	switchedP(t_list *stack, int (*f)(t_list *))
 	return (-1);
 }
 
+/*
+ * Swaps at given location
+ */
 int	swap_at(t_list *stack, int index)
 {
 	int	moves, rotates;
@@ -209,6 +212,68 @@ int	swap_at(t_list *stack, int index)
 		rotates++;
 	}
 	return (moves);
+}
+
+
+/*
+ * Rotates the given stack to get the more efficient
+ * lower number to the top
+ */
+size_t	prepTop(t_list *stack)
+{
+	size_t		smallest, biggest, chunkSize, chunks;
+	size_t		found, topi, boti;
+	size_t	moves, lookChunk;
+
+	chunks = 5;
+	smallest = ft_lstmin(stack);
+	biggest = ft_lstmax(stack);
+	chunkSize = (biggest - smallest + chunks) / chunks;
+
+	moves = 0;
+
+	lookChunk = 0;
+	while (lookChunk < chunks)
+	{
+		found = 0;
+		topi = 0;
+		while (topi < ft_lstlen(stack))
+		{
+			if ((size_t)ft_pslstget_it(stack, topi) >= smallest + chunkSize * lookChunk &&
+					(size_t)ft_pslstget_it(stack, topi) < smallest + chunkSize * (lookChunk + 1))
+			{
+				found = 1;
+				break;
+			}
+			topi++;
+		}
+		boti = ft_lstlen(stack) - 1;
+		while (boti >= 0)
+		{
+			if ((size_t)ft_pslstget_it(stack, boti) >= smallest + chunkSize * lookChunk &&
+					(size_t)ft_pslstget_it(stack, boti) < smallest + chunkSize * (lookChunk + 1))
+			{
+				found = 1;
+				break;
+			}
+			boti--;
+		}
+
+		if (found)
+		{
+			boti = ft_lstlen(stack) - boti;
+			if (topi <= boti)
+				moves = moves + rotate(&stack, topi);
+			else
+				moves = moves + revRotate(&stack, boti);
+			return (moves);
+		}
+		lookChunk++;
+	}
+	// Shouldnt happen
+	ft_printf("Shouldnt Be Appearing");
+	return (moves);
+	
 }
 
 /*

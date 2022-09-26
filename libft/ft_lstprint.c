@@ -16,11 +16,11 @@ void	ft_lstprint(t_list *head)
 {	
 	if (head)
 	{
-		ft_printf("%s\n", (char *)(head->content));
+		ft_printf("%i\n", *(int *)(head->content));
 		while (head->next != NULL)
 		{
 			head = head->next;
-			ft_printf("%s\n", (char *)(head->content));
+			ft_printf("%i\n", *(int *)(head->content));
 		}
 	}
 }

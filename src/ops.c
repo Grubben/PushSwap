@@ -53,6 +53,25 @@ int	r(t_list **stack)
 	return (0);
 }
 
+
+/*
+ * Normal rotates the stack
+ * the amount specified
+ */
+int	rotate(t_list **stack, int howMany)
+{
+	int	q;
+
+	q = howMany;
+	while (q > 0)
+	{
+		r(stack);
+		q--;
+	}
+	return (howMany);
+}
+
+
 // The last element becomes the first one
 int	rr(t_list **stack)
 {
@@ -71,6 +90,23 @@ int	rr(t_list **stack)
 	return (0);
 }
 
+
+/*
+ * Reverse rotates the stack
+ * the amount specified
+ */
+int	revRotate(t_list **stack, int howMany)
+{
+	int	q;
+
+	q = howMany;
+	while (q > 0)
+	{
+		rr(stack);
+		q--;
+	}
+	return (howMany);
+}
 /*
 int	main(void)
 {

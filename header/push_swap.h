@@ -28,9 +28,21 @@ int	p(t_list **stack1, t_list **stack2);
 int	r(t_list **stack);
 
 /*
+ * Normal rotates the stack
+ * the amount specified
+ */
+int	rotate(t_list **stack, int howMany);
+
+/*
  * The last element becomes the first one
  */
 int	rr(t_list **stack);
+
+/*
+ * Reverse rotates the stack
+ * the amount specified
+ */
+int	revRotate(t_list **stack, int howMany);
 
 
 # endif

@@ -116,7 +116,7 @@ int	drain(t_list **giver, t_list **receiver)
 int	turnedP(t_list *stack)
 {
 	int	exceptions;
-	int	i;
+	size_t	i;
 
 	if (ft_lstlen(stack) < 2)
 		return (0);
@@ -126,7 +126,7 @@ int	turnedP(t_list *stack)
 	i = 0;
 	while (i < ft_lstlen(stack) - 1)
 	{
-		if (ft_lstgetitem(stack, i) > ft_lstgetitem(i + 1))
+		if (ft_lstget_item(stack, i) > ft_lstget_item(stack, i + 1))
 		{
 			exceptions++;
 			if (exceptions > 1)
@@ -145,7 +145,7 @@ int	turnedP(t_list *stack)
 int	switchedP(t_list *stack, int (*f)(t_list *))
 {
 	t_list	*replica;
-	int		index, rotates;
+	size_t		index, rotates;
 
 	if (ft_lstlen(stack) < 2)
 		return (-1);
@@ -157,13 +157,13 @@ int	switchedP(t_list *stack, int (*f)(t_list *))
 		rotates = index;
 		while (rotates)
 		{
-			r(replica);
+			r(&replica);
 			rotates--;
 		}
-		s(replica);
+		s(&replica);
 		while (rotates < index)
 		{
-			rr(replica);
+			rr(&replica);
 			rotates++;
 		}
 		if (f(replica))
@@ -172,15 +172,15 @@ int	switchedP(t_list *stack, int (*f)(t_list *))
 		// Goes back to undo the swap
 		while (rotates)
 		{
-			r(replica);
+			r(&replica);
 			rotates--;
 		}
 
-		s(replica);
+		s(&replica);
 
 		while (rotates < index)
 		{
-			rr(replica);
+			rr(&replica);
 			rotates++;
 		}
 
@@ -189,7 +189,27 @@ int	switchedP(t_list *stack, int (*f)(t_list *))
 	return (-1);
 }
 
+int	swap_at(t_list *stack, int index)
+{
+	int	moves, rotates;
 
+	if (!stack && !index)
+		return (-1);
+	moves = 0;
+	rotates = index;
+	while (rotates)
+	{
+		moves = moves + r(&stack);
+		rotates--;
+	}
+	moves = moves + s(&stack);
+	while (rotates < index)
+	{
+		moves = moves + rr(&stack);
+		rotates++;
+	}
+	return (moves);
+}
 
 /*
 int	main(void)

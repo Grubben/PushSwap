@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amc <amc@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: amaria-d <amaria-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 19:39:23 by amaria-d          #+#    #+#             */
-/*   Updated: 2022/09/23 19:10:58 by amc              ###   ########.fr       */
+/*   Updated: 2022/09/26 12:15:19 by amaria-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,11 @@ Presumes t_list:content is originally int type
 */
 int	ft_lstmin(t_list *lst);
 
+void	ft_lstprint(t_list *head);
+
+t_list  *ft_lstcpy(t_list *lst);
+
+
 int		ft_lstmax(t_list *lst);
 
 int		ft_charinside(char c, const char *s);
@@ -147,8 +152,6 @@ char	*ft_strnchr(char *s, int c);
 void	ft_reverse(char *s);
 
 void	ft_reversen(char *s, unsigned int n);
-
-void	ft_lstprint(t_list *head);
 
 int		ft_smin(long long a, long long b);
 

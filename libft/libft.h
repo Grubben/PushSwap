@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amaria-d <amaria-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amc <amc@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 19:39:23 by amaria-d          #+#    #+#             */
-/*   Updated: 2022/09/26 12:27:28 by amaria-d         ###   ########.fr       */
+/*   Updated: 2022/09/26 23:06:58 by amc              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,12 @@ size_t	ft_lstindex(t_list *stack, int value);
  * Acts like python array[n]
  */
 t_list	*ft_lstget_item(t_list *lst, ssize_t index);
+
+/*
+ * ft_lstget_item but presumes
+ * t_list::content is an (int *)
+ */
+int	ft_pslstget_it(t_list *lst, ssize_t index);
 
 /*
 Presumes t_list:content is originally int type

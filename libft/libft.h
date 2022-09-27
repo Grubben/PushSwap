@@ -146,7 +146,7 @@ int	ft_lstmin(t_list *lst);
 int	ft_lstmax(t_list *lst);
 
 /*
-Presumes t_list:content is originally (char *) type
+Presumes t_list:content is originally (int *) type
 */
 void	ft_lstprint(t_list *head);
 

@@ -66,6 +66,9 @@ size_t  bgearSort(t_list **a, t_list **b)
 
         moves = moves + prepTop(*a, chunks);
 
+        // ft_lstprint(*a);
+        // ft_lstprint(*b);
+
         if (ft_pslstget_it(*a, 0) < ft_lstmin(*b))
         {
             moves = moves + set_descending(b);
@@ -93,7 +96,7 @@ size_t  bgearSort(t_list **a, t_list **b)
         }
     }
 
-    while (is_ascendingP(*a) && (b && (ft_pslstget_it(*b, 0) != ft_lstmax(*b))))
+    while ((is_ascendingP(*a) && *b) && (ft_pslstget_it(*b, 0) != ft_lstmax(*b)))
     {
         r(b);
         moves++;

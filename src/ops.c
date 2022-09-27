@@ -25,7 +25,7 @@ int	p(t_list **stack1, t_list **stack2)
 {
 	t_list	*newHeadS1;
 		
-	if ((stack2 && stack1) && (*stack2 && *stack1))
+	if (stack2 && *stack2)
 	{
 		newHeadS1 = *stack2;
 		(*stack2) = (*stack2) -> next;

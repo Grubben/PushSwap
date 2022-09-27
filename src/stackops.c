@@ -221,8 +221,8 @@ int	swap_at(t_list *stack, int index)
  */
 size_t	prepTop(t_list *stack)
 {
-	size_t		smallest, biggest, chunkSize, chunks;
-	size_t		found, topi, boti;
+	size_t		smallest, biggest, chunkSize, chunks, topi;
+	ssize_t		found, boti;
 	size_t	moves, lookChunk;
 
 	chunks = 5;
@@ -262,7 +262,7 @@ size_t	prepTop(t_list *stack)
 		if (found)
 		{
 			boti = ft_lstlen(stack) - boti;
-			if (topi <= boti)
+			if ((long long int)topi <= (long long int)boti)
 				moves = moves + rotate(&stack, topi);
 			else
 				moves = moves + revRotate(&stack, boti);

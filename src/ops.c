@@ -23,16 +23,30 @@ int s(t_list **stack)
 // Take the first element at the top of stack2 and put it at the top of stack1
 int	p(t_list **stack1, t_list **stack2)
 {
-	t_list	*newHeadS1;
+	// t_list	*newHeadS1;
 		
-	if (stack2 && *stack2)
+	// if (stack2 && *stack2)
+	// {
+	// 	newHeadS1 = *stack2;
+	// 	(*stack2) = (*stack2) -> next;
+	// 	ft_lstadd_front(stack1, newHeadS1);
+	// 	return (1);
+	// }
+	// return (0);
+	t_list	*olds1, *olds2;
+
+	if (stack2 && ft_lstlen(*stack2) >= 1)
 	{
-		newHeadS1 = *stack2;
-		(*stack2) = (*stack2) -> next;
-		ft_lstadd_front(stack1, newHeadS1);
+		olds1 = *stack1;
+		olds2 = *stack2;
+		*stack2 = (*stack2)->next;
+		*stack1 = olds2;
+		olds2->next = olds1;
 		return (1);
 	}
 	return (0);
+
+
 }
 
 // The first element becomes the last one

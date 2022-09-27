@@ -80,7 +80,7 @@ int	swap_at(t_list *stack, int index);
  * Rotates the given stack to get the more efficient
  * lower number to the top
  */
-size_t	prepTop(t_list *stack);
+size_t	prepTop(t_list *stack, int chunks);
 
 
 # endif

@@ -6,7 +6,7 @@
 /*   By: amaria-d <amaria-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 09:08:33 by amaria-d          #+#    #+#             */
-/*   Updated: 2022/09/27 09:38:06 by amaria-d         ###   ########.fr       */
+/*   Updated: 2022/09/27 10:33:11 by amaria-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ size_t  bgearSort(t_list **a, t_list **b)
 
     moves = 0;
 
-    if (is_ascendingP(a))
+    if (is_ascendingP(*a))
         return (0);
     
-    if (turnedP(a))
+    if (turnedP(*a))
     {
-        while (turnedP(a))
+        while (turnedP(*a))
         {
             r(a);
             moves++;
@@ -31,42 +31,42 @@ size_t  bgearSort(t_list **a, t_list **b)
         return (moves);
     }
     
-    if (switchedP(a, is_ascendingP) > (-1))
-        return (swap_at(a, switchedP(a, is_ascendingP)));
+    if (switchedP(*a, is_ascendingP) > (-1))
+        return (swap_at(*a, switchedP(*a, is_ascendingP)));
 
-    if (ft_lstlen(a) < 50)
+    if (ft_lstlen(*a) < 50)
         chunks = 3;
-    else if (ft_lstlen(a) <= 100)
+    else if (ft_lstlen(*a) <= 100)
         chunks = 7;
     else
         chunks = 10;
 
-    moves = moves + prepTop(a, chunks);
+    moves = moves + prepTop(*a, chunks);
     p(b, a);
     moves++;
 
     while (a)
     {
-        if (turnedP(a))
+        if (turnedP(*a))
         {
             ft_printf("Turned");
             moves = moves + set_ascending(a);
             ft_printf("Unturned a");
         }
 
-        if (switchedP(a, is_ascendingP) > (-1))
-            swap_at(a, switchedP(a, is_ascendingP));
+        if (switchedP(*a, is_ascendingP) > (-1))
+            swap_at(*a, switchedP(*a, is_ascendingP));
         
-        if (is_ascendingP(a) && (ft_lstmin(a) > ft_lstmax(b)))
+        if (is_ascendingP(*a) && (ft_lstmin(*a) > ft_lstmax(*b)))
         {
             moves = moves + drain(b, a);
-            ft_lstprint(a);
+            ft_lstprint(*a);
             break;
         }
 
-        moves = moves + prepTop(a, chunks);
+        moves = moves + prepTop(*a, chunks);
 
-        if (ft_pslstget_it(a, 0) < ft_lstmin(b))
+        if (ft_pslstget_it(*a, 0) < ft_lstmin(*b))
         {
             moves = moves + set_descending(b);
             p(b, a);
@@ -74,7 +74,7 @@ size_t  bgearSort(t_list **a, t_list **b)
             moves = moves + 2;
         }
 
-        else if (ft_pslstget_it(a, 0) > ft_lstmax(b))
+        else if (ft_pslstget_it(*a, 0) > ft_lstmax(*b))
         {
             moves = moves + set_descending(b);
             p(b, a);
@@ -83,7 +83,7 @@ size_t  bgearSort(t_list **a, t_list **b)
         else
         {
             moves = moves + set_descending(b);
-            while (ft_pslstget_it(a, 0) < ft_pslstget_it(b, 0))
+            while (ft_pslstget_it(*a, 0) < ft_pslstget_it(*b, 0))
             {
                 r(b);
                 moves++;
@@ -93,13 +93,13 @@ size_t  bgearSort(t_list **a, t_list **b)
         }
     }
 
-    while (is_ascendingP(a) && (b && (ft_pslstget_it(b, 0) != ft_lstmax(b))))
+    while (is_ascendingP(*a) && (b && (ft_pslstget_it(*b, 0) != ft_lstmax(*b))))
     {
         r(b);
         moves++;
     }
-    ft_lstprint(a);
-    ft_lstprint(b);
+    ft_lstprint(*a);
+    ft_lstprint(*b);
 
     while (b)
     {
@@ -108,7 +108,7 @@ size_t  bgearSort(t_list **a, t_list **b)
     }
     
     ft_printf("\n");
-    ft_lstprint(a);
+    ft_lstprint(*a);
 
     return (moves);
 }

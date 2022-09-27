@@ -219,7 +219,7 @@ int	swap_at(t_list *stack, int index)
  * Rotates the given stack to get the more efficient
  * lower number to the top
  */
-size_t	prepTop(t_list *stack, int chunks)
+size_t	prepTop(t_list *stack, unsigned int chunks)
 {
 	size_t		smallest, biggest, chunkSize, topi;
 	ssize_t		found, boti;

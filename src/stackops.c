@@ -72,6 +72,8 @@ int	set_descending(t_list **stack)
 {
 	int	moves;
 	
+	// ft_lstprint(*stack);
+
 	moves = 0;
 	if (ft_lstindex(*stack, ft_lstmax(*stack)) > (ft_lstlen(*stack) / 2))
 	{
@@ -138,6 +140,11 @@ int	turnedP(t_list *stack)
 }
 
 
+void	nada(void *el)
+{
+	(void)el;
+}
+
 /*
  * A switched stack is in the order specified by
  * verifierF with a single swap. VerifierF is a predicate
@@ -167,7 +174,10 @@ int	switchedP(t_list *stack, int (*f)(t_list *))
 			rotates++;
 		}
 		if (f(replica))
+		{
+			ft_lstclear(&replica, nada);
 			return (index);
+		}
 		
 		// Goes back to undo the swap
 		while (rotates)

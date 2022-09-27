@@ -9,7 +9,7 @@
 /*   Updated: 2022/09/27 10:54:46 by amaria-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stdio.h>
 #include "../header/push_swap.h"
 
 int main(int argc, char **argv)
@@ -21,8 +21,9 @@ int main(int argc, char **argv)
     if (argc < 2)
         return (0);
     tmp = ft_calloc(1, sizeof(int));
+    *tmp = ft_atoi(argv[1]);
     args = ft_lstnew(tmp);
-    i = 1;
+    i = 2;
     while (argv[i])
     {
         tmp = ft_calloc(1, sizeof(int));
@@ -31,7 +32,15 @@ int main(int argc, char **argv)
         i++;
     }
     b = NULL;
+    // ft_lstprint(args);
+    // ft_lstprint(b);
+    // ft_printf("\n");
+
     count = bgearSort(&args, &b);
+    // count = 0;
+
+    ft_lstclear(&args, free);
+    ft_lstclear(&b, free);
 
     ft_printf("Number of moves: %d", count);
     

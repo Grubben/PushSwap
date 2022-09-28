@@ -24,3 +24,29 @@ int rr_p(t_list **stack, char verbChar)
     ft_printf("rr%c\n", verbChar);
     return (rr(stack));
 }
+
+int	rotate_p(t_list **stack, int howMany, char verbChar)
+{
+	int	q;
+
+	q = howMany;
+	while (q > 0)
+	{
+		r_p(stack, verbChar);
+		q--;
+	}
+	return (howMany);
+}
+
+int	revRotate_p(t_list **stack, int howMany, char verbChar)
+{
+	int	q;
+
+	q = howMany;
+	while (q > 0)
+	{
+		rr_p(stack, verbChar);
+		q--;
+	}
+	return (howMany);
+}

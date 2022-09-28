@@ -21,7 +21,7 @@ int	ft_lstmin(t_list *lst)
 
 	if (!lst)
 	{
-		ft_printf("ERROR");
+		ft_printf("ERROR\n");
 		// exit(-1);
 	}
 	min = *(int *)(lst->content);

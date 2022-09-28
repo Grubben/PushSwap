@@ -188,5 +188,6 @@ def prepTop(stack, chunks=5):
 
 if __name__ == "__main__":
     a = [75, 68, 100, 43, 23, 2, 98, 77]
-    print(prepTop(a))
-    print(a)
+    # print(prepTop(a))
+    # print(a)
+    print(switchedP([1,3,2,4], is_ascendingP))

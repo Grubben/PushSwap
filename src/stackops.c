@@ -153,7 +153,7 @@ void	nada(void *el)
 int	switchedP(t_list *stack, int (*f)(t_list *))
 {
 	t_list	*replica;
-	size_t		index, rotates;
+	size_t	index, rotates;
 
 	if (ft_lstlen(stack) < 2)
 		return (-1);
@@ -197,6 +197,7 @@ int	switchedP(t_list *stack, int (*f)(t_list *))
 
 		index++;
 	}
+	ft_lstclear(&replica, nada);
 	return (-1);
 }
 
@@ -230,14 +231,14 @@ int	swap_at(t_list *stack, int index)
  * Rotates the given stack to get the more efficient
  * lower number to the top
  */
-size_t	prepTop(t_list *stack, unsigned int chunks)
+size_t	prepTop(t_list **stack, unsigned int chunks)
 {
 	size_t		smallest, biggest, chunkSize, topi;
 	ssize_t		found, boti;
-	size_t	moves, lookChunk;
+	size_t		moves, lookChunk;
 
-	smallest = ft_lstmin(stack);
-	biggest = ft_lstmax(stack);
+	smallest = ft_lstmin(*stack);
+	biggest = ft_lstmax(*stack);
 	chunkSize = (biggest - smallest + chunks) / chunks;
 
 	moves = 0;
@@ -247,21 +248,21 @@ size_t	prepTop(t_list *stack, unsigned int chunks)
 	{
 		found = 0;
 		topi = 0;
-		while (topi < ft_lstlen(stack))
+		while (topi < ft_lstlen(*stack))
 		{
-			if ((size_t)ft_pslstget_it(stack, topi) >= smallest + chunkSize * lookChunk &&
-					(size_t)ft_pslstget_it(stack, topi) < smallest + chunkSize * (lookChunk + 1))
+			if ((size_t)ft_pslstget_it(*stack, topi) >= smallest + chunkSize * lookChunk &&
+					(size_t)ft_pslstget_it(*stack, topi) < smallest + chunkSize * (lookChunk + 1))
 			{
 				found = 1;
 				break;
 			}
 			topi++;
 		}
-		boti = ft_lstlen(stack) - 1;
+		boti = ft_lstlen(*stack) - 1;
 		while (boti >= 0)
 		{
-			if ((size_t)ft_pslstget_it(stack, boti) >= smallest + chunkSize * lookChunk &&
-					(size_t)ft_pslstget_it(stack, boti) < smallest + chunkSize * (lookChunk + 1))
+			if ((size_t)ft_pslstget_it(*stack, boti) >= smallest + chunkSize * lookChunk &&
+					(size_t)ft_pslstget_it(*stack, boti) < smallest + chunkSize * (lookChunk + 1))
 			{
 				found = 1;
 				break;
@@ -271,17 +272,17 @@ size_t	prepTop(t_list *stack, unsigned int chunks)
 
 		if (found)
 		{
-			boti = ft_lstlen(stack) - boti;
+			boti = ft_lstlen(*stack) - boti;
 			if ((long long int)topi <= (long long int)boti)
-				moves = moves + rotate(&stack, topi);
+				moves = moves + rotate(stack, topi);
 			else
-				moves = moves + revRotate(&stack, boti);
+				moves = moves + revRotate(stack, boti);
 			return (moves);
 		}
 		lookChunk++;
 	}
 	// Shouldnt happen
-	ft_printf("Shouldnt Be Appearing");
+	ft_printf("Shouldnt Be Appearing\n");
 	return (moves);
 	
 }
@@ -292,11 +293,11 @@ int	main(void)
 	t_list	*stack1;
 	// t_list	*stack2;
 	t_list	el;
-	int		counter;
-	int		n[4] = {1,2,3,4};
+	// int		counter;
+	int		n[4] = {1,3,2,4};
 
-	counter = 0;
-	stack1 = NULL;
+	// counter = 0;
+	// stack1 = NULL;
 
 	el.content = (void *)(&n);
 	el.next = NULL;
@@ -310,11 +311,15 @@ int	main(void)
 
 	ft_lstadd_back(&stack1, ft_lstnew((void *)&(n[3])));
 
-	// ft_lstprint(stack1);
+	ft_lstprint(stack1);
+
+	int	is_swted;
+	is_swted = switchedP(stack1, is_ascendingP);
+	ft_printf("\n%d\n", is_swted);
 	// ft_printf("%d\n", *(int *)(stack1->next->next->next->content));
 
 	// Check asc/desc functions
-	ft_printf("%d\n", is_ascendingP(stack1));
-	ft_printf("%d\n", is_descendingP(stack1));
+	// ft_printf("%d\n", is_ascendingP(stack1));
+	// ft_printf("%d\n", is_descendingP(stack1));
 }
 */

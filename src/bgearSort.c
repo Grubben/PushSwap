@@ -25,7 +25,7 @@ size_t  bgearSort(t_list **a, t_list **b)
     {
         while (turnedP(*a))
         {
-            r(a);
+            r_p(a, 'a');
             moves++;
         }
         return (moves);
@@ -41,15 +41,15 @@ size_t  bgearSort(t_list **a, t_list **b)
     else
         chunks = 10;
 
-    moves = moves + prepTop(*a, chunks);
-    p(b, a);
+    moves = moves + prepTop(a, chunks);
+    p_p(b, a, 'b');
     moves++;
 
-    while (a)
+    while (*a)
     {
         if (turnedP(*a))
         {
-            ft_printf("Turned");
+            ft_printf("Turned__");
             moves = moves + set_ascending(a);
             ft_printf("Unturned a");
         }
@@ -64,7 +64,7 @@ size_t  bgearSort(t_list **a, t_list **b)
             break;
         }
 
-        moves = moves + prepTop(*a, chunks);
+        moves = moves + prepTop(a, chunks);
 
         // ft_lstprint(*a);
         // ft_lstprint(*b);
@@ -72,15 +72,15 @@ size_t  bgearSort(t_list **a, t_list **b)
         if (ft_pslstget_it(*a, 0) < ft_lstmin(*b))
         {
             moves = moves + set_descending(b);
-            p(b, a);
-            r(b);
+            p_p(b, a, 'a');
+            r_p(b, 'b');
             moves = moves + 2;
         }
 
         else if (ft_pslstget_it(*a, 0) > ft_lstmax(*b))
         {
             moves = moves + set_descending(b);
-            p(b, a);
+            p_p(b, a, 'b');
             moves++;
         }
         else
@@ -88,30 +88,30 @@ size_t  bgearSort(t_list **a, t_list **b)
             moves = moves + set_descending(b);
             while (ft_pslstget_it(*a, 0) < ft_pslstget_it(*b, 0))
             {
-                r(b);
+                r_p(b, 'b');
                 moves++;
             }
-            p(b, a);
+            p_p(b, a, 'b');
             moves++;
         }
     }
 
     while ((is_ascendingP(*a) && *b) && (ft_pslstget_it(*b, 0) != ft_lstmax(*b)))
     {
-        r(b);
+        r_p(b, 'b');
         moves++;
     }
-    ft_lstprint(*a);
-    ft_lstprint(*b);
+    // ft_lstprint(*a);
+    // ft_lstprint(*b);
 
-    while (b)
+    while (*b)
     {
-        p(a, b);
+        p_p(a, b, 'a');
         moves++;
     }
     
-    ft_printf("\n");
-    ft_lstprint(*a);
+    // ft_printf("\n");
+    // ft_lstprint(*a);
 
     return (moves);
 }

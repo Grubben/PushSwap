@@ -28,21 +28,32 @@ int	p(t_list **stack1, t_list **stack2);
 int	r(t_list **stack);
 
 /*
+ * The last element becomes the first one
+ */
+int	rr(t_list **stack);
+
+/*
  * Normal rotates the stack
  * the amount specified
  */
 int	rotate(t_list **stack, int howMany);
 
 /*
- * The last element becomes the first one
- */
-int	rr(t_list **stack);
-
-/*
  * Reverse rotates the stack
  * the amount specified
  */
 int	revRotate(t_list **stack, int howMany);
+
+
+/*	PRINTER OPS	*/
+
+int s_p(t_list **stack, char verbChar);
+
+int p_p(t_list **stack1, t_list **stack2, char verbChar);
+
+int r_p(t_list **stack, char verbChar);
+
+int rr_p(t_list **stack, char verbChar);
 
 
 /*	STACKOPS	*/

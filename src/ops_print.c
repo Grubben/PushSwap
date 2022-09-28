@@ -1,0 +1,26 @@
+#include "../header/push_swap.h"
+
+
+int s_p(t_list **stack, char verbChar)
+{
+    ft_printf("s%c\n", verbChar);
+    return (s(stack));
+}
+
+int p_p(t_list **stack1, t_list **stack2, char verbChar)
+{
+    ft_printf("p%c\n", verbChar);
+    return (p(stack1, stack2));
+}
+
+int r_p(t_list **stack, char verbChar)
+{
+    ft_printf("r%c\n", verbChar);
+    return (r(stack));
+}
+
+int rr_p(t_list **stack, char verbChar)
+{
+    ft_printf("rr%c\n", verbChar);
+    return (rr(stack));
+}

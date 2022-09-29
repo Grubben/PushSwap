@@ -66,14 +66,14 @@ int	is_ascendingP(t_list *stack);
 
 int	is_descendingP(t_list *stack);
 
-int	set_ascending(t_list **stack);
+int	set_ascending(t_list **stack, char verbChar);
 
-int	set_descending(t_list **stack);
+int	set_descending(t_list **stack, char verbChar);
 
 /*
  * Drains all nums in giver to receiver with p
  */
-int	drain(t_list **giver, t_list **receiver);
+int	drain_p(t_list **giver, t_list **receiver, char verbChar);
 
 /*
  * Returns whether the stack is Turned or not

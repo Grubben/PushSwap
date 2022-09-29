@@ -34,7 +34,7 @@ def bgearSort(a, b):
     while a:
         if turnedP(a):
             print("Turned.")
-            moves += set_ascending(a)
+            moves += set_ascending(a, 'a')
             print("Unturned a")
         
         if switchedP(a, is_ascendingP) > (-1):
@@ -54,21 +54,21 @@ def bgearSort(a, b):
 
         # Top of A is smaller than everything in B
         if a[0] < min(b):
-            moves += set_descending(b)
+            moves += set_descending(b, "b")
             p(b, a, "b")
             r(b, "b")
             moves += 2
 
         # Top of A is bigger than everythin in B
         elif a[0] > max(b):
-            moves += set_descending(b)
+            moves += set_descending(b, "b")
             p(b, a, "b")
             moves += 1
 
         # Top of A is not smaller nor bigger than numbers in B
         else:
             #TODO: optmize this a lot!!!
-            moves += set_descending(b)
+            moves += set_descending(b, "b")
             while a[0] < b[0]:
                 r(b, "b")
                 moves += 1

@@ -41,7 +41,7 @@ int	is_descendingP(t_list *stack)
 /*
  * [1, 2, 3]
  */
-int	set_ascending(t_list **stack)
+int	set_ascending(t_list **stack, char verbChar)
 {
 	int	moves;
 	
@@ -50,7 +50,7 @@ int	set_ascending(t_list **stack)
 	{
 		while (*(int *)((*stack)->content) != ft_lstmin(*stack))
 		{
-			rr(stack);
+			rr_p(stack, verbChar);
 			moves++;
 		}
 	}
@@ -58,7 +58,7 @@ int	set_ascending(t_list **stack)
 	{
 		while (*(int *)((*stack)->content) != ft_lstmin(*stack))
 		{
-			r(stack);
+			r_p(stack, verbChar);
 			moves++;
 		}
 	}
@@ -68,7 +68,7 @@ int	set_ascending(t_list **stack)
 /*
  * [3, 2, 1]
  */
-int	set_descending(t_list **stack)
+int	set_descending(t_list **stack, char verbChar)
 {
 	int	moves;
 	
@@ -80,7 +80,7 @@ int	set_descending(t_list **stack)
 	{
 		while (*(int *)((*stack)->content) != ft_lstmax(*stack))
 		{
-			rr(stack);
+			rr_p(stack, verbChar);
 			moves++;
 		}
 	}
@@ -88,7 +88,7 @@ int	set_descending(t_list **stack)
 	{
 		while (*(int *)((*stack)->content) != ft_lstmax(*stack))
 		{
-			r(stack);
+			r_p(stack, verbChar);
 			moves++;
 		}
 	}
@@ -99,14 +99,14 @@ int	set_descending(t_list **stack)
 /*
  * Drains all nums in giver to receiver with p
  */
-int	drain(t_list **giver, t_list **receiver)
+int	drain_p(t_list **giver, t_list **receiver, char verbChar)
 {
 	size_t	moves;
 	
-	moves = set_descending(giver);
+	moves = set_descending(giver, verbChar);
 	while (*giver)
 	{
-		p(receiver, giver);
+		p_p(receiver, giver, verbChar);
 		moves++;
 	}
 	return moves;

@@ -20,10 +20,10 @@ int main(int argc, char **argv)
 
     if (argc < 2)
         return (0);
-    tmp = ft_calloc(1, sizeof(int));
-    *tmp = ft_atoi(argv[1]);
-    args = ft_lstnew(tmp);
-    i = 2;
+    // tmp = ft_calloc(1, sizeof(int));
+    // *tmp = ft_atoi(argv[1]);
+    // args = ft_lstnew(tmp);
+    i = 1;
     while (argv[i])
     {
         tmp = ft_calloc(1, sizeof(int));
@@ -32,7 +32,7 @@ int main(int argc, char **argv)
         i++;
     }
     b = NULL;
-    // ft_lstprint(args);
+    ft_lstprint(args);
     // ft_lstprint(b);
     // ft_printf("\n");
 

@@ -123,13 +123,13 @@ int	turnedP(t_list *stack)
 
 	if (ft_lstlen(stack) < 2)
 		return (0);
-	if (ft_lstget_item(stack, 0) < ft_lstget_item(stack, -1))
+	if (ft_pslstget_it(stack, 0) < ft_pslstget_it(stack, -1))
 		return (0);
 	exceptions = 0;
 	i = 0;
 	while (i < ft_lstlen(stack) - 1)
 	{
-		if (ft_lstget_item(stack, i) > ft_lstget_item(stack, i + 1))
+		if (ft_pslstget_it(stack, i) > ft_pslstget_it(stack, i + 1))
 		{
 			exceptions++;
 			if (exceptions > 1)
@@ -231,7 +231,7 @@ int	swap_at(t_list *stack, int index)
  * Rotates the given stack to get the more efficient
  * lower number to the top
  */
-size_t	prepTop(t_list **stack, unsigned int chunks)
+size_t	prepTop(t_list **stack, unsigned int chunks, char verbChar)
 {
 	size_t		smallest, biggest, chunkSize, topi;
 	ssize_t		found, boti;
@@ -274,9 +274,9 @@ size_t	prepTop(t_list **stack, unsigned int chunks)
 		{
 			boti = ft_lstlen(*stack) - boti;
 			if ((long long int)topi <= (long long int)boti)
-				moves = moves + rotate(stack, topi);
+				moves = moves + rotate_p(stack, topi, verbChar);
 			else
-				moves = moves + revRotate(stack, boti);
+				moves = moves + revRotate_p(stack, boti, verbChar);
 			return (moves);
 		}
 		lookChunk++;

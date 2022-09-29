@@ -55,6 +55,10 @@ int r_p(t_list **stack, char verbChar);
 
 int rr_p(t_list **stack, char verbChar);
 
+int	rotate_p(t_list **stack, int howMany, char verbChar);
+
+int	revRotate_p(t_list **stack, int howMany, char verbChar);
+
 
 /*	STACKOPS	*/
 
@@ -91,7 +95,7 @@ int	swap_at(t_list *stack, int index);
  * Rotates the given stack to get the more efficient
  * lower number to the top
  */
-size_t	prepTop(t_list **stack, unsigned int chunks);
+size_t	prepTop(t_list **stack, unsigned int chunks, char verbChar);
 
 
 /*	BGEARSORT	*/

@@ -7,7 +7,8 @@ from bgearSort import bgearSort
 
 args = [int(i) for i in sys.argv[1:]]
 
-#algoSort()
+args.extend([2, 3, 1, 5, 6, 4])
+#algoSort(), 
 count = bgearSort(args, [])
 
 # print()

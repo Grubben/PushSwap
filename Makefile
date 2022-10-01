@@ -16,9 +16,9 @@ CC 			= gcc
 CFLAGS		= -g3 -Wall -Wextra -Werror
 
 ## LINKAGE
-LINKER		= gcc
-# Linking Flags
-LFLAGS		= -Wall -Wextra -Werror -L$(DEPSDIR) -l$(LIBS)
+# LINKER		= gcc
+# # Linking Flags
+# LFLAGS		= -Wall -Wextra -Werror -L$(DEPSDIR) -l$(LIBS)
 
 
 # Removal Flags. Not sure if necessary
@@ -31,8 +31,11 @@ OBJECTS		:= $(SOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 
 NAME		= $(BINDIR)/$(TARGET)
 
+all			: libft.a $(NAME)
+
 $(NAME)		: all
-				@$(LINKER) $(OBJECTS) $(LFLAGS) -o $@
+				# @$(LINKER) $(OBJECTS) $(LFLAGS) -o $@
+				$(CC) -o $@ $(OBJECTS) $(DEPSDIR)/libft.a
 				@echo "Linking complete!"
 
 
@@ -46,8 +49,6 @@ libft.a		:
 				cp libft/libft.h $(DEPSDIR)
 
 
-all			: libft.a $(OBJECTS)
-
 clean		:
 				# $(RM) $(OBJECTS)
 				$(RM) $(OBJDIR)/*
@@ -60,4 +61,4 @@ fclean		: clean
 re			: fclean $(NAME)
 
 
-.PHONY		: $(NAME) all bonus clean fclean re libft.a $(NAME)
+.PHONY		: all bonus clean fclean re

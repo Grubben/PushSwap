@@ -98,6 +98,8 @@ int	swap_at(t_list *stack, int index);
 size_t	prepTop(t_list **stack, unsigned int chunks, char verbChar);
 
 
+void	nada(void *el);
+
 /*	BGEARSORT	*/
 
 size_t  bgearSort(t_list **a, t_list **b);

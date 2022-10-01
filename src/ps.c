@@ -9,7 +9,7 @@
 /*   Updated: 2022/09/27 10:54:46 by amaria-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+// #include <stdio.h>
 #include "../header/push_swap.h"
 
 int main(int argc, char **argv)
@@ -18,11 +18,10 @@ int main(int argc, char **argv)
     int     i, count;
     int     *tmp;
 
+    ft_printf("argc is: %i\n-----\n", argc);
     if (argc < 2)
         return (0);
-    // tmp = ft_calloc(1, sizeof(int));
-    // *tmp = ft_atoi(argv[1]);
-    // args = ft_lstnew(tmp);
+    args = NULL;
     i = 1;
     while (argv[i])
     {
@@ -32,7 +31,7 @@ int main(int argc, char **argv)
         i++;
     }
     b = NULL;
-    ft_lstprint(args);
+    // ft_lstprint(args);
     // ft_lstprint(b);
     // ft_printf("\n");
 
